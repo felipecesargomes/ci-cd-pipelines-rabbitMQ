@@ -1,0 +1,86 @@
+version: "3"
+services: 
+
+  auth-api:
+    build: ./auth-api
+    container_name: auth-api
+    environment:
+      - POSTGRES_DB=auth-db
+      - POSTGRES_USER=admin
+      - POSTGRES_PASSWORD=123456
+      - PORT=8080
+    ports:
+      - 8080:8080
+    depends_on:
+      - auth-db
+      
+  product-api:
+    build: ./products-api  
+    container_name: product-api
+    restart: always
+    environment:
+      - POSTGRES_DB=product-db
+      - POSTGRES_USER=admin
+      - POSTGRES_PASSWORD=123456
+      - PORT=8083
+    ports:
+      - 8083:8083
+    depends_on:
+      - product-db
+
+  sales-api:
+    build: ./sales-api  
+    container_name: sales-api
+    restart: always
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=admin
+      - MONGO_INITDB_ROOT_PASSWORD=123456
+      - PORT=8081
+    ports:
+      - 8081:8081
+    depends_on:
+      - sales-db
+
+  sales-rabbit:
+    image: rabbitmq:3-management
+    container_name: sales-rabbit
+    restart: always
+    environment:
+      RABBITMQ_DEFAULT_USER: admin  
+      RABBITMQ_DEFAULT_PASS: 123456 
+    ports:
+      - 5672:5672
+      - 25676:25676
+      - 15672:15672
+
+  auth-db:
+    image: postgres:11
+    container_name: auth-db
+    restart: always
+    environment:
+      - POSTGRES_DB=auth-db
+      - POSTGRES_USER=admin
+      - POSTGRES_PASSWORD=123456
+    ports:
+      - 5433:5432
+
+  product-db:
+    image: postgres:11
+    container_name: product-db
+    restart: always
+    environment:
+      - POSTGRES_DB=product-db
+      - POSTGRES_USER=admin
+      - POSTGRES_PASSWORD=123456
+    ports:
+      - 5434:5432
+
+  sales-db:
+    image: mongo
+    container_name: sales-db
+    restart: always
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=admin
+      - MONGO_INITDB_ROOT_PASSWORD=123456
+    ports:
+      - 21017:27017

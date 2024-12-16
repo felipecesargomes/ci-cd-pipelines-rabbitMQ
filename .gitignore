@@ -1,0 +1,50 @@
+# =====================
+# Java
+# =====================
+*.class
+*.jar
+*.war
+*.ear
+*.log
+*.javadoc
+
+# Build
+/bin/
+build/
+target/
+
+# Configurações do Maven
+.mvn/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+dependency-reduced-pom.xml
+release.properties
+
+# Gradle
+.gradle/
+build/
+
+# =====================
+# Node.js
+# =====================
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+/.pnp
+.pnp.js
+.env
+.env.*
+
+# Logs
+*.log
+
+# =====================
+# VSCode
+# =====================
+.vscode/
+.history/
+*.code-workspace
+
