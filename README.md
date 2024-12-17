@@ -1,6 +1,6 @@
 # CI/CD Pipelines com RabbitMQ
 
-Este projeto demonstra a implementação de um sistema distribuído usando RabbitMQ para comunicação entre microsserviços, juntamente com a integração de pipelines CI/CD para automação de testes e deploy.
+Este projeto demonstra a implementação de um sistema distribuído usando RabbitMQ para comunicação entre microsserviços, juntamente com a integração de pipelines CI/CD (no gitlab e github) para automação de testes e deploy.
 
 ## 📖 Descrição do Projeto
 
@@ -15,14 +15,15 @@ Os pipelines CI/CD configurados automatizam o processo de integração, teste e 
 As principais tecnologias e ferramentas utilizadas neste projeto são:
 
 - **Node.js**: Para criação dos microsserviços.
-- **Express.js**: Framework minimalista para desenvolvimento de APIs.
+- **Express.js**: Framework para desenvolvimento de APIs.
 - **RabbitMQ**: Sistema de mensagens para comunicação assíncrona.
 - **Docker**: Containerização dos microsserviços.
 - **Docker Compose**: Gerenciamento de múltiplos serviços Docker.
-- **PostgreSQL**: Banco de dados relacional utilizado por alguns serviços.
+- **PostgreSQL**: Banco de dados relacional utilizado por alguns serviços para auth-api e products-api.
 - **Sequelize**: ORM para PostgreSQL.
-- **Jenkins/GitHub Actions**: Configuração de pipelines CI/CD.
+- **GitLab CI/CD | GitHub Actions**: Configuração de pipelines CI/CD.
 - **bcryptjs**: Para hashing de senhas.
+- **mongodb**: Banco de Dados NOSQL para sales-api.
 
 ---
 
@@ -31,12 +32,69 @@ As principais tecnologias e ferramentas utilizadas neste projeto são:
 A estrutura do projeto segue uma organização modular:
 
 ```plaintext
-ci-cd-pipelines-rabbitMQ/
-├── auth-api/               # Microsserviço de autenticação
-├── sales-api/              # Microsserviço de vendas
-├── products-api/           # Microsserviço de produtos
-├── config/                 # Configurações globais
-│   └── db/                 # Configuração do banco de dados
-├── docker-compose.yml      # Configuração de containers Docker
-├── Jenkinsfile             # Pipeline de CI/CD (exemplo Jenkins)
-├── README.md               # Documentação do projeto
+├── auth-api
+│   ├── app.js
+│   ├── config
+│   │   └── db
+│   │       ├── dbConfig.js
+│   │       └── initialData.js
+│   ├── Dockerfile
+│   ├── modules
+│   │   └── user
+│   │       └── model
+│   │           └── User.js
+│   ├── package.json
+│   ├── package-lock.json
+│   └── seeds.js
+├── docker-compose.yml
+├── products-api
+│   ├── Dockerfile
+│   ├── HELP.md
+│   ├── mvnw
+│   ├── mvnw.cmd
+│   ├── pom.xml
+│   ├── src
+│   │   ├── main
+│   │   │   ├── java
+│   │   │   │   └── br
+│   │   │   │       └── com
+│   │   │   │           └── felipe
+│   │   │   │               └── products_api
+│   │   │   │                   ├── ProductsApiApplication.java
+│   │   │   │                   └── StatusController.java
+│   │   │   └── resources
+│   │   │       ├── application.yml
+│   │   │       ├── static
+│   │   │       └── templates
+│   │   └── test
+│   │       └── java
+│   │           └── br
+│   │               └── com
+│   │                   └── felipe
+│   │                       └── products_api
+│   │                           └── ProductsApiApplicationTests.java
+│   └── target
+│       ├── classes
+│       │   ├── application.yml
+│       │   └── br
+│       │       └── com
+│       │           └── felipe
+│       │               └── products_api
+│       │                   ├── ProductsApiApplication.class
+│       │                   └── StatusController.class
+│       ├── generated-sources
+│       │   └── annotations
+│       ├── generated-test-sources
+│       │   └── test-annotations
+│       └── test-classes
+│           └── br
+│               └── com
+│                   └── felipe
+│                       └── products_api
+│                           └── ProductsApiApplicationTests.class
+├── README.md
+└── sales-api
+    ├── app.js
+    ├── Dockerfile
+    ├── package.json
+    └── package-lock.json
