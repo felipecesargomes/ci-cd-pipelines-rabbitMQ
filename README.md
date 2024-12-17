@@ -77,25 +77,6 @@ tree -I "node_modules|dist|coverage"
 │   │                   └── felipe
 │   │                       └── products_api
 │   │                           └── ProductsApiApplicationTests.java
-│   └── target
-│       ├── classes
-│       │   ├── application.yml
-│       │   └── br
-│       │       └── com
-│       │           └── felipe
-│       │               └── products_api
-│       │                   ├── ProductsApiApplication.class
-│       │                   └── StatusController.class
-│       ├── generated-sources
-│       │   └── annotations
-│       ├── generated-test-sources
-│       │   └── test-annotations
-│       └── test-classes
-│           └── br
-│               └── com
-│                   └── felipe
-│                       └── products_api
-│                           └── ProductsApiApplicationTests.class
 ├── README.md
 └── sales-api
     ├── app.js
