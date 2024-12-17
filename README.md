@@ -31,6 +31,10 @@ As principais tecnologias e ferramentas utilizadas neste projeto são:
 
 A estrutura do projeto segue uma organização modular:
 
+```
+tree -I "node_modules|dist|coverage"
+```
+
 ```plaintext
 ├── auth-api
 │   ├── app.js
