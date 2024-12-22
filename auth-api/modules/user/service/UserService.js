@@ -1,5 +1,5 @@
-import userRepository from "../repository/userRepository";
-import * as httpStatus from "../../config/constants/httpStatus.js";
+import userRepository from "../repository/UserRepository.js";
+import * as httpStatus from "../../../config/constants/httpStatus.js";
 import UserException from "../userException/UserException.js";
 
 class UserService {
@@ -36,7 +36,7 @@ class UserService {
     }
   }
 
-  validateUserNotFound() {
+  validateUserNotFound(user) {
     if(!user) {
       throw new UserException(httpStatus.BAD_REQUEST, "User not found.");
     }
