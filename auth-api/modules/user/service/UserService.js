@@ -1,4 +1,4 @@
-import userRepository from "../repository/UserRepository.js";
+import userRepository from "../repository/userRepository";
 import * as httpStatus from "../../config/constants/httpStatus.js";
 
 class UserService {
