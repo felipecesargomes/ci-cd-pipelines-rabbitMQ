@@ -1,9 +1,8 @@
-import { Router } from "express"
+import { Router } from "express";
+import UserController from "../controller/UserController.js";
 
-import UserController from "../controller/UserController"
+const router = Router(); 
 
-const router = new Router();
-
-router.get("api/user/email/:email", UserController.findByEmail);
+router.get("/api/user/email/:email", UserController.findByEmail);
 
 export default router;
