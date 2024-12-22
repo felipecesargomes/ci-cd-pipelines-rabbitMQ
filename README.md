@@ -39,14 +39,26 @@ tree -I "node_modules|dist|coverage"
 ├── auth-api
 │   ├── app.js
 │   ├── config
+│   │   ├── constants
+│   │   │   └── httpStatus.js
 │   │   └── db
 │   │       ├── dbConfig.js
 │   │       └── initialData.js
 │   ├── Dockerfile
 │   ├── modules
 │   │   └── user
-│   │       └── model
-│   │           └── User.js
+│   │       ├── controller
+│   │       │   └── UserController.js
+│   │       ├── model
+│   │       │   └── User.js
+│   │       ├── repository
+│   │       │   └── UserRepository.js
+│   │       ├── routes
+│   │       │   └── UserRoutes.js
+│   │       ├── service
+│   │       │   └── UserService.js
+│   │       └── userException
+│   │           └── UserException.js
 │   ├── package.json
 │   ├── package-lock.json
 │   └── seeds.js
@@ -77,6 +89,25 @@ tree -I "node_modules|dist|coverage"
 │   │                   └── felipe
 │   │                       └── products_api
 │   │                           └── ProductsApiApplicationTests.java
+│   └── target
+│       ├── classes
+│       │   ├── application.yml
+│       │   └── br
+│       │       └── com
+│       │           └── felipe
+│       │               └── products_api
+│       │                   ├── ProductsApiApplication.class
+│       │                   └── StatusController.class
+│       ├── generated-sources
+│       │   └── annotations
+│       ├── generated-test-sources
+│       │   └── test-annotations
+│       └── test-classes
+│           └── br
+│               └── com
+│                   └── felipe
+│                       └── products_api
+│                           └── ProductsApiApplicationTests.class
 ├── README.md
 └── sales-api
     ├── app.js
