@@ -1,3 +1,5 @@
+# CI/CD Pipelines com RabbitMQ
+
 <p align="center">
   <img src="https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white" alt="Node.js"/>
   <img src="https://img.shields.io/badge/RabbitMQ-FF6600?style=for-the-badge&logo=rabbitmq&logoColor=white" alt="RabbitMQ"/>
@@ -6,8 +8,6 @@
   <img src="https://img.shields.io/badge/CI%2FCD-430098?style=for-the-badge&logo=githubactions&logoColor=white" alt="CI/CD"/>
   <img src="https://img.shields.io/badge/MongoDB-47A248?style=for-the-badge&logo=mongodb&logoColor=white" alt="MongoDB"/>
 </p>
-
-# CI/CD Pipelines com RabbitMQ
 
 Este projeto demonstra a implementação de um sistema distribuído usando RabbitMQ para comunicação entre microsserviços, juntamente com a integração de pipelines CI/CD (no gitlab e github) para automação de testes e deploy.
 
