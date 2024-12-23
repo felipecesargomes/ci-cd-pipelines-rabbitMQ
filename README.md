@@ -23,6 +23,7 @@ As principais tecnologias e ferramentas utilizadas neste projeto são:
 - **Sequelize**: ORM para PostgreSQL.
 - **GitLab CI/CD | GitHub Actions**: Configuração de pipelines CI/CD.
 - **bcryptjs**: Para hashing de senhas.
+- **jsonwebtoken**: Para gerenciamento do JWT.
 - **mongodb**: Banco de Dados NOSQL para sales-api.
 
 ---
@@ -39,11 +40,15 @@ tree -I "node_modules|dist|coverage"
 ├── auth-api
 │   ├── app.js
 │   ├── config
+│   │   ├── auth
+│   │   │   ├── AcessTokenException.js
+│   │   │   └── CheckToken.js
 │   │   ├── constants
-│   │   │   └── httpStatus.js
+│   │   │   ├── HttpStatus.js
+│   │   │   └── Secrets.js
 │   │   └── db
-│   │       ├── dbConfig.js
-│   │       └── initialData.js
+│   │       ├── DbConfig.js
+│   │       └── InitialData.js
 │   ├── Dockerfile
 │   ├── modules
 │   │   └── user
